@@ -1,0 +1,31 @@
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+.large {
+    border-color: #008CBA;
+    width: 100%;
+    font-size: 2.5rem;
+}
+
+.medium {
+    border-color: #e7e7e7;
+    width: 90%;
+    font-size: 1.5rem;
+}
+
+.small {
+    border-color: #4CAF50;
+    width: 70%;
+    font-size: 1rem;
+}
+
+.smaller {
+    border-color: #f44336;
+    width: 50%;
+    font-size: 0.7rem;
+}
