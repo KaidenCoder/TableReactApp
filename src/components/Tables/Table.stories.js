@@ -11,5 +11,5 @@ export default {
 }
 
 
-export const HoldingsTable = () => <TableComponent url={data} columns={COLUMNS} order={ORDER} />
-export const TransactionsTable = () => <TableComponent url={data2} columns={COLUMNSTWO} order={ORDERTWO} />
+export const HoldingsTable = (props) => <TableComponent columns={COLUMNS} order={ORDER} />
+export const TransactionsTable = (props) => <TableComponent url={props.data2} columns={COLUMNSTWO} order={ORDERTWO} />

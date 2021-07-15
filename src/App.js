@@ -10,7 +10,8 @@ import TableOne from './TableOne';
 import TableComponent from './components/Tables/TableComponent';
 import { URL, COLUMNS, ORDER } from './columns'
 import { URLTWO, COLUMNSTWO, ORDERTWO } from './columns2'
-import { Primary } from './components/Button/Button.stories';
+import { Danger, Light, Primary, Secondary } from './components/Button/Button.stories';
+import { HoldingsTable } from './components/Tables/Table.stories';
 
 function App() {
 
@@ -39,22 +40,33 @@ function App() {
 
   return (
     <div className="App">
-      <Primary name="" />
-      <Link to="/">First Table</Link>
-      <Link to="/second">Second Table</Link>
+      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <Primary name="Table Database" />
+        <div style={{ marginTop: '3em', display: 'flex' }}>
+          <Link to="/"><Danger name="Holdings" /></Link>
+          <Link to="/second"><Light name="Transactions" /></Link>
+        </div>
+      </div>
+      <hr />
+
+
 
       <Switch>
         <Route exact path="/">
-          <SortingTable />
+          <TableComponent
+            url={data}
+            columns={COLUMNS}
+          />
         </Route>
         <Route exact path="/second">
-          <SortingTableTwo2 />
-          {/* <TableComponent
+          <TableComponent
             url={data2}
             columns={COLUMNSTWO}
-            order={ORDERTWO} /> */}
+          />
         </Route>
       </Switch>
+
+
 
 
     </div>
@@ -62,3 +74,9 @@ function App() {
 }
 
 export default App;
+
+
+{/* <TableComponent
+            url={data2}
+            columns={COLUMNSTWO}
+            order={ORDERTWO} /> */}

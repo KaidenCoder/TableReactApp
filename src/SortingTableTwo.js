@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { useTable, useSortBy, usePagination, useColumnOrder } from 'react-table'
 import { COLUMNSTWO } from './columns2'
+import { Secondary, Success } from './components/Button/Button.stories'
 import './Table.css'
 
 function SortingTableTwo2() {
@@ -60,7 +61,9 @@ function SortingTableTwo2() {
 
     return (
         <>
-            <button onClick={changeOrder}>Change column order</button>
+
+            <Secondary name="Transactions Table" />
+            <button style={{ border: "none", backgroundColor: "white", margin: '1em' }} onClick={changeOrder}><Success name="Change column order" /></button>
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -68,7 +71,7 @@ function SortingTableTwo2() {
                             {headerGroup.headers.map(column => (
                                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>{column.render('Header')}
                                     <span>
-                                        {column.isSorted ? (column.isSortedDesc ? " V" : "^") : ''}
+                                        {column.isSorted ? (column.isSortedDesc ? " ↓" : "↑") : '↔'}
                                     </span>
                                 </th>
                             ))}
@@ -89,7 +92,7 @@ function SortingTableTwo2() {
                     })}
                 </tbody>
             </table>
-            <div>
+            <div style={{ padding: "2em" }}>
                 <span>
                     Page{' '}<strong>{pageIndex + 1}</strong> of {pageOptions.length}{' '}
                 </span>
@@ -117,12 +120,14 @@ function SortingTableTwo2() {
                         ))
                     }
                 </select>
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
+                <div style={{ padding: "1em" }}>
+                    <button style={{ margin: "0.3em" }} onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
 
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
+                    <button style={{ margin: "0.3em" }} onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
+                    <button style={{ margin: "0.3em" }} onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
 
-                <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+                    <button style={{ margin: "0.3em" }} onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
+                </div>
             </div>
         </>
     )

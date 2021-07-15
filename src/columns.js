@@ -2,11 +2,11 @@ import NumberFormat from 'react-number-format';
 export const URL = "https://canopy-frontend-task.vercel.app/api/holdings"
 export const COLUMNS = [
     {
-        Header: 'Name',
+        Header: 'Holding name(string)',
         accessor: 'name'
     },
     {
-        Header: 'Ticker',
+        Header: 'Ticker(string)',
         accessor: 'ticker'
     },
     {
